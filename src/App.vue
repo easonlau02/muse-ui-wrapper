@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="right" :class="open?'open_drawer':'hide_drawer'" style="display: fixed;">
+    <div id="right" :class="open?'open_drawer':'hide_drawer'">
       <div class="header">
         <mu-appbar title="Application">
           <mu-icon-button icon="menu" slot="left" @click="toggle()"/>
@@ -8,12 +8,12 @@
           <mu-icon-button icon="expand_more" slot="right"/>
         </mu-appbar>
       </div>
+      <div class="content">
+        <router-view></router-view>
+      </div>
       <!--<div class="footer">-->
         <!--Muse-UI ©2017 Created by Muse-UI-->
       <!--</div>-->
-    </div>
-    <div :class="open?'open_drawer':'hide_drawer'">
-      <router-view></router-view>
     </div>
     <div id="left">
       <mu-drawer :open="open" :docked="docked" @close="toggle()">
